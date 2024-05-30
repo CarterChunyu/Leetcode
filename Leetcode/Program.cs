@@ -6,9 +6,11 @@ namespace Leetcode
     {
         static void Main(string[] args)
         {
-            int[] nums = { 3, 1, 3, 3, 3};
-            int reuslt= RemoveElement2(nums, 3);
-
+            int[] nums1 = { 2,7,11,13};
+            int[] nums2 = { 1, 2,3 };
+            int m = 3;
+            int n = 3;
+            new _2_7_167().TwoSum3(nums1, 9);
         }
 
 
