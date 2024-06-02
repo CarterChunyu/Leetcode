@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlTypes;
+using System.Reflection;
 
 namespace Leetcode
 {
@@ -6,30 +7,18 @@ namespace Leetcode
     {
         static void Main(string[] args)
         {
-            int[] nums1 = { 2,7,11,13};
-            int[] nums2 = { 1, 2,3 };
+            int[] nums1 = { 0, 0, 0, 0 };
+            int[] nums2 = { 1, 2, 3 };
             int m = 3;
             int n = 3;
-            new _2_7_167().TwoSum3(nums1, 9);
+
+
+            var nums = new int[] { 2, 3, 1, 2, 4, 3 };
+            var s = "abcabcbb";
+            new _2_13_3().LengthOfLongestSubstring1(s);
         }
 
 
-        public static int RemoveElement2(int[] nums, int val) // 羽
-        {
-            int i = 0;
-            int j = nums.Length;
 
-            while (i < j)
-            {
-                if (nums[i] == val)
-                {
-                    j--;
-                    nums[i] = nums[j];
-                }
-                else
-                    i++;
-            }
-            return j;
-        }
     }
 }
