@@ -18,7 +18,9 @@ namespace Leetcode02
             int j = 0;
             List<int> ans = new List<int>();
 
-            while(i < nums1.Length && j < nums2.Length)
+            // ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+            // nums1 或 nums2 的指針在小於時都做 i++ j++, 如果其中一個指針以達到邊界代表已經沒有數字匹配,自動結束循環
+            while (i < nums1.Length && j < nums2.Length)
             {
                 if (nums1[i] < nums2[j])
                     i++;

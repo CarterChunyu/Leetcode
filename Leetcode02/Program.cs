@@ -19,7 +19,12 @@
 
             string pattern = "abba";
             string s = "dog cat cat dog";
-            new _3_06_290().WordPattern(pattern, s);
+            new _3_06_290().WordPattern2(pattern, s);
+
+
+            string s1 = "tree";
+            new _3_07_451().FrequencySort2(s1);
+
         }
     }
 }

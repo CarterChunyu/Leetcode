@@ -50,7 +50,7 @@ namespace Leetcode02
                 if (sArr[i] != tArr[i])
                     return false;
                 else
-                    i++; 
+                    i++;
             }
             return true;
         }

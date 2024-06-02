@@ -24,7 +24,10 @@ namespace Leetcode
                 // 去除右邊非字符元素
                 while (l <r && !char.IsLetterOrDigit(s[r]))
                     r--;
-                if (char.ToLower(s[l]) == char.ToLower(s[r]))
+
+                // 因為前面的while循環有判斷必須 l<r,所以指針移動後只有可能出現 l<=r, l==r 必為 s[l]==s[r]
+                if (char.ToLower(s[l]) == char.ToLower(s[r])) 
+                    return false;
                 // 左右指針移動一步考察新的元素
                 l++;
                 r--;
