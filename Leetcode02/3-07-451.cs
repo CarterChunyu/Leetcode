@@ -97,9 +97,9 @@ namespace Leetcode02
             for (int i = pairs.Count-1; i >=0 ; i--)
             {
                 Pair p = pairs[i];
-                for (int j = 0; j < p.Seq; j++)
+                for (int j = 0; j < p.freq; j++)
                 {
-                    builder.Append(p.C);
+                    builder.Append(p.c);
                 }
             }
             return builder.ToString();  
@@ -126,16 +126,16 @@ namespace Leetcode02
     {
         public Pair(char c, int seq)
         {
-            C = c;
-            Seq = seq;
+            this.c = c;
+            freq = seq;
         }
 
-        public char C { get; set; }
-        public int Seq { get; set; }
+        public char c { get; set; }
+        public int freq { get; set; }
 
         public int CompareTo(Pair? other)
         {
-            return this.Seq - other.Seq;
+            return this.freq - other.freq;
         }
     }
 

@@ -127,6 +127,7 @@ namespace Leetcode
             return list;
         }
 
+        // 都是同一個陣列的題目首先想到指針 
         public IList<IList<int>> ThreeSum4(int[] nums)
         {
             IList<IList<int>> list = new List<IList<int>>();
