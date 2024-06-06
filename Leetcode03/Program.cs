@@ -63,7 +63,7 @@ namespace Leetcode03
                 fourNode.next = fiveNode;
                 fiveNode.next = sixNode;
 
-                new _4_06_203().RemoveElements(oneNode, 6);
+                new _4_06_203().RemoveElements2(oneNode, 6);
             }
             #endregion
 
