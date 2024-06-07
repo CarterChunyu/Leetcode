@@ -18,14 +18,12 @@ namespace Leetcode03
     //}
     public class _4_06_203
     {
-        //☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-        // 因為數組
-
         // 羽
         public ListNode RemoveElements1(ListNode head, int val)
         {
             //☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
-            // 因為鏈表的節點都是 引用類型, 複製的是他的指向物件的參考位址, 其實 head cur pre 指向同一個物件。
+            // 因為鏈表的節點都是 引用類型, 複製的是他的指向物件的參考位址, 其實 head cur pre 指向同一個物件, 對其中一個的屬性或欄位做出
+            // 改變其他指向相同物件的變數也會跟著影響
             ListNode cur = head; 
             ListNode pre = null;
 
@@ -55,7 +53,30 @@ namespace Leetcode03
             return head;
         }
 
+        // 虛擬頭節點 
         public ListNode RemoveElements2(ListNode head, int val)
+        {
+            ListNode dummyNode = new ListNode(-1, head);
+            ListNode pre = dummyNode;
+            ListNode cur = head;
+
+            while (cur != null)
+            {
+                if (cur.val == val)
+                {
+                    pre.next = pre.next.next;
+                    cur = cur.next;
+                }
+                else
+                {
+                    pre = cur;
+                    cur = cur.next;
+                }
+            }
+            return dummyNode.next;
+        }
+
+        public ListNode RemoveElements3(ListNode head, int val)
         {
 
 
@@ -87,7 +108,7 @@ namespace Leetcode03
         }
 
         // 虛擬頭節點
-        public ListNode RemoveElements3(ListNode head, int val)
+        public ListNode RemoveElements4(ListNode head, int val)
         {
             //if (head == null)
             //    return null;
