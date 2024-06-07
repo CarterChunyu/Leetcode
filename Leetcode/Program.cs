@@ -6,11 +6,15 @@ namespace Leetcode
     {
         static void Main(string[] args)
         {
-            int[] nums1 = { 2,7,11,13};
-            int[] nums2 = { 1, 2,3 };
-            int m = 3;
-            int n = 3;
-            new _2_7_167().TwoSum3(nums1, 9);
+           for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i == 3 && j == 0)
+                        break;
+                    Console.WriteLine($"{i}-{j}");
+                }
+            }
         }
 
 
