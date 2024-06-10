@@ -158,7 +158,7 @@ namespace Leetcode
                         // 去重 l 指針移動到相同元素的最後一個 
                         while (l < r && nums[l] == nums[l + 1])
                             l++;
-                        // 去重 r 指針移動到相同元素的最後一個
+                        // 去重 r 指針移動到相同元素的最後一個 
                         while (l < r && nums[r] == nums[r - 1])
                             r--;
                         l++;

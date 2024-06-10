@@ -72,7 +72,7 @@ namespace Leetcode02
         }
         public IList<IList<string>> GroupAnagrams2(string[] strs)
         {
-            // 關鍵 用排序過後的異味詞 當作映射的 Key
+            // 關鍵 用排序過後的異位詞 當作映射的 Key
             Dictionary<string, IList<string>> dic = new Dictionary<string, IList<string>>();
             for (int i = 0; i < strs.Length; i++)
             {
