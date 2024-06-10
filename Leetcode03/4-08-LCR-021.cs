@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Leetcode03
 {
-    public class _4_08_LCR_021
+    public class _4_08_LCR_021 // 删除链表倒数第N个节点
     {
-        // 羽 
+        // 羽  
         public ListNode RemoveNthFromEnd1(ListNode head, int n)
         {
             ListNode cur = head;

@@ -118,6 +118,53 @@ namespace Leetcode03
                 new _4_10_206().ReverseList2(null);
             }
             #endregion
+            #region 4-11
+            {
+                // 創建鏈表節點
+                ListNode oneNode = new ListNode(1, null);
+                ListNode twoNode = new ListNode(2, null);
+                ListNode threeNode = new ListNode(3, null);
+                ListNode fourNode = new ListNode(4, null);
+                ListNode fiveNode = new ListNode(5, null);
+
+
+                //在鏈表中穿針引線
+                oneNode.next = twoNode;
+                twoNode.next = threeNode;
+                threeNode.next = fourNode;
+                fourNode.next = fiveNode;
+                fiveNode.next = null;
+
+                ListNode cur =  new _4_11_92().ReverseBetween2(oneNode, 2,4);
+
+                while(cur!= null)
+                {
+                    Console.Write($"{cur.val}->");
+                    cur = cur.next;
+                }
+            }
+            #endregion
+            #region 4-12
+            {
+                // 創建鏈表節點
+                ListNode oneNode = new ListNode(1, null);
+                ListNode twoNode = new ListNode(2, null);
+                ListNode threeNode = new ListNode(4, null);
+                
+                ListNode fourNode = new ListNode(5, null);
+                //ListNode fiveNode = new ListNode(3, null);
+                //ListNode sixNode = new ListNode(4, null);
+
+                //在鏈表中穿針引線
+                oneNode.next = twoNode;
+                twoNode.next = threeNode;
+
+                //fourNode.next = fiveNode;
+                //fiveNode.next = sixNode;
+
+                new _4_12_21().MergeTwoLists(oneNode, fourNode);
+            }
+            #endregion
         }
     }
 }
