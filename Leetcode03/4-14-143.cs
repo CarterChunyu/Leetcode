@@ -37,6 +37,7 @@ namespace Leetcode03
                 cur = cur.next;
                 cur.next = firstHead;
                 firstHead = firstHead.next;
+                cur = cur.next;
             }
             while (secondHead != null)
             {
