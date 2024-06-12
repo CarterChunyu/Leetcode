@@ -165,6 +165,40 @@ namespace Leetcode03
                 new _4_12_21().MergeTwoLists(oneNode, fourNode);
             }
             #endregion
+            #region 4-13
+            {
+                // 創建鏈表節點
+                ListNode oneNode = new ListNode(1, null);
+                ListNode twoNode = new ListNode(2, null);
+                ListNode threeNode = new ListNode(2, null);
+                ListNode fourNode = new ListNode(1, null);
+                
+                // 在鏈表中穿針引線
+                oneNode.next = twoNode;
+                twoNode.next = threeNode;
+                threeNode.next = fourNode;
+
+                new _4_13_234().IsPalindrome(oneNode);
+           
+            }
+            #endregion
+            #region 4-14
+            {
+                // 創建鏈表節點
+                ListNode oneNode = new ListNode(1, null);
+                ListNode twoNode = new ListNode(2, null);
+                ListNode threeNode = new ListNode(3, null);
+                ListNode fourNode = new ListNode(4, null);
+
+                // 在鏈表中穿針引線
+                oneNode.next = twoNode;
+                twoNode.next = threeNode;
+                threeNode.next = fourNode;
+
+                new _4_14_143().ReorderList(oneNode);
+
+            }
+            #endregion
         }
     }
 }
