@@ -187,16 +187,15 @@ namespace Leetcode03
                 // 創建鏈表節點
                 ListNode oneNode = new ListNode(1, null);
                 ListNode twoNode = new ListNode(2, null);
-                ListNode threeNode = new ListNode(3, null);
-                ListNode fourNode = new ListNode(4, null);
+                //ListNode threeNode = new ListNode(3, null);
+                //ListNode fourNode = new ListNode(4, null);
 
                 // 在鏈表中穿針引線
                 oneNode.next = twoNode;
-                twoNode.next = threeNode;
-                threeNode.next = fourNode;
+                //twoNode.next = threeNode;
+                //threeNode.next = fourNode;
 
-                new _4_14_143().ReorderList(oneNode);
-
+                new _4_14_143().ReorderList3(oneNode);
             }
             #endregion
         }
