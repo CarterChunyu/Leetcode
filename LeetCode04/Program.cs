@@ -1,4 +1,6 @@
-﻿using System.IO.Pipes;
+﻿using System.ComponentModel;
+using System.IO.Pipes;
+using System.Net;
 
 namespace LeetCode04
 {
@@ -50,6 +52,19 @@ namespace LeetCode04
                 // 前序
                 PreOrder1(eightNode);
                 Console.WriteLine();
+                // 中序
+                InOrder1(eightNode);
+                Console.WriteLine();
+                // 後序
+                PostOrder1(eightNode);
+                Console.WriteLine();
+
+                // 層序
+                LevelOrder(eightNode);
+                Console.WriteLine();
+
+                // 層序收集
+                IList<IList<int>> list = LevelCollect(eightNode);
             }
             #endregion
         }
@@ -82,25 +97,7 @@ namespace LeetCode04
                     stack.Push(node.left);
             }
         }
-
-        // 前序遍歷 -- 疊代 -- queue 錯誤 -- 右節點會比做節點還優先遍歷不符合 根左右的規則
-        //public static void PreOrder1(TreeNode root)
-        //{
-        //    if (root == null)
-        //        return;
-        //    Queue<TreeNode> queue = new Queue<TreeNode>();
-        //    queue.Enqueue(root);
-        //    while(queue.Count > 0)
-        //    {
-        //        TreeNode node =  queue.Dequeue();
-        //        Console.Write($"{node.val} ");
-        //        if(node.left != null)
-        //            queue.Enqueue(node.left);
-        //        if(node.right != null)
-        //            queue.Enqueue(node.right);
-        //    }
-        //}
-
+      
         // 中序遍歷: 對於每一個節點都遵循左根右進行訪問
         public static void InOrderRecursion(TreeNode root)
         {
@@ -202,9 +199,106 @@ namespace LeetCode04
                         stack.Push(new Command("go", command.node.left));
                     stack.Push(new Command("do", command.node));
                 }
-            }
-            
+            }       
         } 
+
+        // 中序
+        public static void InOrder1(TreeNode root)
+        {
+            if(root == null) 
+                return;
+            Stack<Command> stack = new Stack<Command>();
+            stack.Push(new Command("go", root));
+            while(stack.Count != 0)
+            {
+                Command command = stack.Pop();
+                TreeNode node = command.node;
+
+                if(command.s == "do")
+                    Console.Write($"{node.val} ");
+                else
+                {
+                    if (node.right != null)
+                        stack.Push(new Command("go", node.right));
+                    stack.Push(new Command("do",node));
+                    if (node.left != null)
+                        stack.Push(new Command("go", node.left));                       
+                }
+            }
+        }
+        // 後序
+        public static void PostOrder1(TreeNode root)
+        {
+            if (root == null)
+                return;
+            Stack<Command> stack = new Stack<Command>();
+            stack.Push(new Command("go", root) );
+
+            while(stack.Count != 0)
+            {
+                Command command = stack.Pop();
+                TreeNode node = command.node;
+                if(command.s == "do")
+                    Console.Write($"{node.val} ");
+                else
+                {
+                    stack.Push(new Command("do", node));
+                    if (node.right != null)
+                        stack.Push(new Command("go", node.right));
+                    if (node.left != null)
+                        stack.Push(new Command("go", node.left));
+                }        
+            }
+        }
+
+        // 層序遍歷 -- 廣度優先
+        public  static void LevelOrder(TreeNode root)
+        {
+            if (root == null) 
+                return;
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            while (queue.Count > 0)
+            {
+                TreeNode node = queue.Dequeue();
+                Console.Write($"{node.val} ");
+                if (node.left != null)
+                    queue.Enqueue(node.left);
+                if(node.right != null)
+                    queue.Enqueue(node.right);
+            }
+        }
+
+        // 層序 -- 按層收集
+        public static IList<IList<int>> LevelCollect(TreeNode root)
+        {
+            IList<IList<int>> list =new List<IList<int>>();
+            if (root == null)
+                return list;
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            while(queue.Count > 0)
+            {
+                List<int> levelList = new List<int>();
+                int cnt = queue.Count;
+                for (int i = 0; i < cnt; i++)
+                {
+                    TreeNode node = queue.Dequeue();
+                    levelList.Add(node.val);
+                    if (node.left != null)
+                        queue.Enqueue(node.left);
+                    if (node.right != null)
+                        queue.Enqueue(node.right);
+                }
+                list.Add(levelList);
+            }
+            return list;
+        }
+        class KeyValue
+        {
+            public TreeNode Key { get; set; }
+            public int Value { get; set; }
+        }
     }
 
 
