@@ -34,7 +34,7 @@ namespace LeetCode04
         {
             Stack<Command> stack = new Stack<Command>();
             stack.Push(new Command("go", root));
-
+            // ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ 注意是long
             long val = long.MinValue;
             while(stack.Count > 0)
             {
