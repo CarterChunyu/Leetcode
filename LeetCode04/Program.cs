@@ -67,6 +67,27 @@ namespace LeetCode04
                 IList<IList<int>> list = LevelCollect(eightNode);
             }
             #endregion
+
+            #region 5-19-112
+            {
+                TreeNode eightNode = new TreeNode(8, null, null);
+                TreeNode fourNode = new TreeNode(4, null, null);
+                TreeNode twelveNode = new TreeNode(12, null, null);
+                TreeNode twoNode = new TreeNode(2, null, null);
+                TreeNode sixNode = new TreeNode(6, null, null);
+                TreeNode tenNode = new TreeNode(10, null, null);
+                TreeNode fourteenNode = new TreeNode(14, null, null);
+
+                eightNode.left = fourNode;
+                eightNode.right = twelveNode;
+                fourNode.left = twoNode;
+                fourNode.right = sixNode;
+                twelveNode.left = tenNode;
+                twelveNode.right = fourteenNode;
+
+                new _5_19_112().HasPathSum(eightNode, 5);
+            }
+            #endregion
         }
 
         // 前序遍歷: 對於每一個節點都遵循根做右進行訪問

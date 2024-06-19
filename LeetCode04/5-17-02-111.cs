@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LeetCode04
 {
     public class _5_17_02_111
     {
-        public int MinDepth(TreeNode root)
+        // 羽
+        public int MinDepth1(TreeNode root)
         {
             if (root == null)
                 return 0;
@@ -31,6 +33,18 @@ namespace LeetCode04
                 }
             }
             return cnt;
+        }
+
+        // 羽
+        public int MinDepth(TreeNode root)
+        {
+            if(root == null) 
+                return 0;
+            if (root.left == null)
+                return 1 + MinDepth(root.right);
+            if (root.right == null)
+                return 1 + MinDepth(root.left);
+            return 1 + Math.Min(MinDepth(root.left), MinDepth(root.right));
         }
     }
 }
