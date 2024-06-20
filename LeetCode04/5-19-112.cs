@@ -19,7 +19,8 @@ namespace LeetCode04
             PathSum(root, 0);
             return set.Contains(targetSum);
 
-            // ☆☆☆☆☆☆☆☆☆☆☆☆☆ 遞規方法一旦 return 就結束遞歸調用, 所以遍歷方法不會出現 return
+            // ☆☆☆☆☆☆☆☆☆☆☆☆☆  狗屎: 遞規方法一旦 return 就結束遞歸調用, 所以遍歷方法不會出現 return
+            // ☆☆☆☆☆☆☆☆☆☆☆☆☆ 正確的 遞規方法出現 return 並不會結束遞歸調用, 所以遍歷方法皆會出現 return
             void PathSum(TreeNode node, int sum)
             {
                 sum += node.val;
@@ -30,6 +31,33 @@ namespace LeetCode04
                 if(node.left != null)
                     PathSum(node.left, sum);
                 if(node.right!= null)
+                    PathSum(node.right, sum);
+            }
+        }
+
+        // 
+        public bool HasPathSum2(TreeNode root, int targetSum)
+        {
+            // ☆☆☆☆☆☆☆☆☆☆☆☆☆ 正確的 遞規方法出現 return 並不會結束遞歸調用, 所以遍歷方法皆會出現 return
+            if (root == null)
+                return false;
+
+            HashSet<int> set = new HashSet<int>();
+            PathSum(root, 0);
+            return set.Contains(targetSum);
+
+            void PathSum(TreeNode node, int sum)
+            {
+                if (node == null)
+                    return;
+                sum += node.val;
+                if (node.left == null && node.right == null)
+                {
+                    set.Add(sum);
+                }
+                //if (node.left != null)
+                    PathSum(node.left, sum);
+                //if (node.right != null)
                     PathSum(node.right, sum);
             }
         }

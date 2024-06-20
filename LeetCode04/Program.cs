@@ -85,7 +85,47 @@ namespace LeetCode04
                 twelveNode.left = tenNode;
                 twelveNode.right = fourteenNode;
 
-                new _5_19_112().HasPathSum(eightNode, 5);
+                new _5_19_112().HasPathSum2(eightNode, 5);
+            }
+            #endregion
+            #region 5-20-01-257
+            {
+                TreeNode eightNode = new TreeNode(8, null, null);
+                TreeNode fourNode = new TreeNode(4, null, null);
+                TreeNode twelveNode = new TreeNode(12, null, null);
+                TreeNode twoNode = new TreeNode(2, null, null);
+                TreeNode sixNode = new TreeNode(6, null, null);
+                TreeNode tenNode = new TreeNode(10, null, null);
+                TreeNode fourteenNode = new TreeNode(14, null, null);
+
+                eightNode.left = fourNode;
+                eightNode.right = twelveNode;
+                fourNode.left = twoNode;
+                fourNode.right = sixNode;
+                twelveNode.left = tenNode;
+                twelveNode.right = fourteenNode;
+
+                new _5_20_01_257().BinaryTreePaths1(eightNode);
+            }
+            #endregion
+            #region _5_20_02_113
+            {
+                TreeNode eightNode = new TreeNode(8, null, null);
+                TreeNode fourNode = new TreeNode(4, null, null);
+                TreeNode twelveNode = new TreeNode(12, null, null);
+                TreeNode twoNode = new TreeNode(2, null, null);
+                TreeNode sixNode = new TreeNode(6, null, null);
+                TreeNode tenNode = new TreeNode(10, null, null);
+                TreeNode fourteenNode = new TreeNode(14, null, null);
+
+                eightNode.left = fourNode;
+                eightNode.right = twelveNode;
+                fourNode.left = twoNode;
+                fourNode.right = sixNode;
+                twelveNode.left = tenNode;
+                twelveNode.right = fourteenNode;
+
+                new _5_20_02_113().PathSum2(eightNode, 5);
             }
             #endregion
         }
