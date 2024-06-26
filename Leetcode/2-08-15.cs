@@ -11,6 +11,48 @@ namespace Leetcode
 {
     public class _2_8_15
     {
+        // 羽 超時
+        public IList<IList<int>> ThreeSum(int[] nums)
+        {
+            IList<IList<int>> res = new List<IList<int>>();
+            Array.Sort(nums);
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (i - 1 >= 0 && nums[i] == nums[i - 1])
+                {
+                    continue;
+                }
+                int target = -nums[i];
+
+                int l = i + 1;
+                int r = nums.Length - 1;
+
+                while (l < r)
+                {
+                    if (l > i + 1 && nums[l] == nums[l - 1])
+                    {
+                        l++;
+                        continue;
+                    }
+                    if (r < nums.Length - 1 && nums[r] == nums[r + 1])
+                    {
+                        r++;
+                        continue;
+                    }
+                    if (nums[l] + nums[r] < target)
+                        l++;
+                    else if (nums[l] + nums[r] > target)
+                        r--;
+                    else
+                    {
+                        res.Add(new List<int> { nums[i], nums[l], nums[r] });
+                        l++;
+                    }
+                }
+            }
+            return res;
+        }
+
         // 暴力
         public IList<IList<int>> ThreeSum1(int[] nums)
         {
@@ -89,7 +131,7 @@ namespace Leetcode
         public IList<IList<int>> ThreeSum3(int[] nums)
         {
             IList<IList<int>> list = new List<IList<int>>();
-            Sort(nums);
+            Array.Sort(nums);
             int n = nums.Length;
             for (int i = 0; i < n; i++)
             {

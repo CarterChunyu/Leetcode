@@ -31,6 +31,9 @@ namespace LeetCode04
                 twelveNode.left = tenNode;
                 twelveNode.right = fourteenNode;
 
+                new _5_09_03_145().PostorderTraversal3(eightNode);
+
+
                 // 前序
                 PreOrderRecursion(eightNode);
                 Console.WriteLine();

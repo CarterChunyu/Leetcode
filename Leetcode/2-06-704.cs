@@ -25,5 +25,22 @@ namespace Leetcode
             }
             return -1;
         }
+
+        // 遞歸寫法
+        public int Search1(int[] nums, int target)
+        {
+            return Search(0, nums.Length - 1);
+            int Search(int l, int r)
+            {
+                if (l > r)
+                    return -1;
+                int mid = (r - l) / 2 + l;
+                if (target < nums[mid])
+                    return Search(l, r - 1);
+                else if (target > nums[mid])
+                    return Search(l + 1, r);
+                return mid;
+            }
+        }
     }
 }

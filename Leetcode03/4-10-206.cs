@@ -10,25 +10,24 @@ namespace Leetcode03
     public class _4_10_206
     {
         // 羽
-        public ListNode ReverseList1(ListNode head)
+        public ListNode ReverseList(ListNode head)
         {
-            List<ListNode> list = new List<ListNode>();
-            ListNode cur = head;
-            while(cur != null)
+            if (head == null || head.next == null)
+                return head;
+            ListNode pre = head;
+            ListNode cur = head.next;
+            // ☆☆☆☆☆☆☆☆☆☆☆☆☆ 末尾必須指向空, 且必須在給變數 cur 賦值之後
+            // 否則 cur 會變成 null
+            pre.next = null;
+            while (cur != null)
             {
-                list.Add(cur);
-                cur = cur.next;
+                ListNode next = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = next;
             }
-            ListNode dummyNode = new ListNode(-1, null);
-            cur = dummyNode;
-            for (int i = list.Count-1; i >=0 ; i--)
-            {
-                cur.next = list[i];
-                cur = list[i] ;
-            }
-            //☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ 末尾必須指向空否則有環 
-            cur.next = null ;
-            return dummyNode.next;
+            return pre;
+
         }
 
         public ListNode ReverseList2(ListNode head)

@@ -11,6 +11,7 @@ namespace Leetcode03
         // 羽
         public bool IsPalindrome(ListNode head)
         {
+            // 只有一個節點也算回文
             List<int> nums = new List<int>();
             ListNode cur = head; 
             while (cur != null)

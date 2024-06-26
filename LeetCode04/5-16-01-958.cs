@@ -8,6 +8,63 @@ namespace LeetCode04
 {
     public class _5_16_01_958
     {
+        // 不需要跑 for循環
+        public bool IsCompleteTree3(TreeNode root)
+        {
+            if (root == null)
+                return true;
+
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            bool hasNull = false;
+            while (queue.Count > 0)
+            {
+                TreeNode node = queue.Dequeue();
+                if (node.left == null)
+                    hasNull = true;
+                else
+                {
+                    if (hasNull)
+                        return false;
+                    else
+                        queue.Enqueue(node.left);
+                }
+                if (node.right == null)
+                    hasNull = true;
+                else
+                {
+                    if (hasNull)
+                        return false;
+                    else
+                        queue.Enqueue(node.right);
+                }
+            }
+            return true;
+        }
+
+        public bool IsCompleteTree4(TreeNode root)
+        {
+            if (root == null)
+                return true;
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            bool hasNull = false;
+            while (queue.Count > 0)
+            {
+                TreeNode node = queue.Dequeue();
+                if (node == null)
+                    hasNull = true;
+                else if (hasNull)
+                    return false;
+                if (node != null)
+                {
+                    queue.Enqueue(node.left);
+                    queue.Enqueue(node.right);
+                }
+            }
+            return true;
+        }
+
         // 羽
         public bool IsCompleteTree1(TreeNode root)
         {
@@ -40,6 +97,7 @@ namespace LeetCode04
             }
             return true;
         }
+
 
         // 空的也塞入
         public bool IsCompleteTree2(TreeNode root)

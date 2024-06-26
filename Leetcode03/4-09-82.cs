@@ -88,5 +88,31 @@ namespace Leetcode03
             }
             return dummyNode.next;
         }
+
+        // 羽
+        public ListNode DeleteDuplicates4(ListNode head)
+        {
+            ListNode dummyNode = new ListNode(-1, head);
+            ListNode pre = dummyNode;
+            ListNode cur = head;
+
+            while (cur != null)
+            {
+                if (cur.next != null && cur.val == cur.next.val)
+                {
+                    while (cur.next != null && cur.val == cur.next.val)
+                        cur = cur.next;
+                    cur = cur.next;
+                    pre.next = cur;
+                }
+                else
+                {
+                    pre = cur;
+                    cur = cur.next;
+                }
+            }
+            return dummyNode.next;
+        }
+
     }
 }

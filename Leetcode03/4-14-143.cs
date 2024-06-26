@@ -78,6 +78,7 @@ namespace Leetcode03
             }
         }
 
+        // 好解法
         public void ReorderList2(ListNode head)
         {
             if (head == null || head.next == null)
