@@ -15,11 +15,18 @@ namespace LeetCode05
             IList<IList<int>> res = new List<IList<int>>();
             IList<int> list =new List<int>();
             bool[] used = new bool[nums.Length];
+            Array.Sort(nums);
             PermuteUniqueRecursion(nums);
             return res;
             
             void PermuteUniqueRecursion(int[] numsArr)
             {
+                if(list.Count == numsArr.Length)
+                {
+                    res.Add(new List<int>(list));
+                    return;
+                }
+
                 for (int i = 0; i < numsArr.Length ; i++)
                 {
                     if (used[i])
