@@ -5,8 +5,11 @@
         static void Main(string[] args)
         {
             {
-                int[] nums = new int[] { 1,2, 2 };
-                 var x = new _6_4_90().SubsetsWithDup2(nums);
+                bool[] x11 = new bool[1];
+                Console.WriteLine(x11[0]);
+
+                int[] nums = new int[] { 1,1,2 };
+                var x = new _6_9_47().PermuteUnique(nums);
                 Console.WriteLine(new _6_2_78().Print(x));
             }
         }
