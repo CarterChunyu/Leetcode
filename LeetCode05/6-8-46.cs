@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode05
 {
-    public class _6_08_46
+    public class _6_8_46
     {
 
         // [1,2]
