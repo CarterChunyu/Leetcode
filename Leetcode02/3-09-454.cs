@@ -34,38 +34,32 @@ namespace Leetcode02
         // 利用查找表來解
         public int FourSumCount2(int[] nums1, int[] nums2, int[] nums3, int[] nums4)
         {
-            Dictionary<int,int> map1 = new Dictionary<int,int>();
-            for (int i = 0; i < nums1.Length; i++)
+            int n = nums1.Length;
+            Dictionary<int, int> dic1 = new Dictionary<int, int>();
+            Dictionary<int, int> dic2 = new Dictionary<int, int>();
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < nums2.Length; j++)
+                for (int j = 0; j < n; j++)
                 {
                     int sum = nums1[i] + nums2[j];
-                    if (map1.ContainsKey(sum))
-                        map1[sum]++;
+                    if (dic1.ContainsKey(sum))
+                        dic1[sum]++;
                     else
-                        map1[sum] = 1;
-                }
-            }
+                        dic1.Add(sum, 1);
 
-            Dictionary<int, int> map2 = new Dictionary<int, int>();
-            for (int i = 0; i < nums3.Length; i++)
-            {
-                for (int j = 0; j < nums4.Length; j++)
-                {
-                    int sum = nums3[i] + nums4[j];
-                    if (map2.ContainsKey(sum))
-                        map2[sum]++;
+                    int sum2 = nums3[i] + nums4[j];
+                    if (dic2.ContainsKey(sum2))
+                        dic2[sum2]++;
                     else
-                        map2[sum] = 1;
+                        dic2.Add(sum2, 1);
                 }
             }
 
             int cnt = 0;
-            foreach (var item in map1)
+            foreach (var d1_key in dic1.Keys)
             {
-                int target = -item.Key;
-                if (map2.ContainsKey(target))
-                    cnt += item.Value * map2[target];
+                if (dic2.ContainsKey(-d1_key))
+                    cnt += dic1[d1_key] * dic2[-d1_key];
             }
             return cnt;
         }
