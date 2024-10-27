@@ -29,5 +29,22 @@ namespace Leetcode02
             }
             return new int[] { -1, -1 };
         }
+
+        // 更好的寫法
+        public int[] TwoSum1(int[] nums, int target)
+        {
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!dic.ContainsKey(target - nums[i]))
+                {
+                    if (!dic.ContainsKey(nums[i]))
+                        dic.Add(nums[i], i);
+                }
+                else
+                    return new int[] { dic[target - nums[i]], i };
+            }
+            return new int[] { };
+        }
     }
 }

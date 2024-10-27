@@ -22,6 +22,7 @@
         }
 
 
+        //21
         public ListNode MergeTwoLists(ListNode list1, ListNode list2)
         {
             if (list1 == null)
@@ -73,7 +74,7 @@
             {
                 cur.next = cur2;
                 cur = cur.next;
-                cur1 = cur2.next;
+                cur2 = cur2.next;
             }
 
             return dummyNode.next;
