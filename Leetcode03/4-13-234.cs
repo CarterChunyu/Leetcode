@@ -31,5 +31,34 @@ namespace Leetcode03
             }
             return true;
         }
+
+        // 羽 較好
+        public bool IsPalindrome1(ListNode head)
+        {
+            if (head == null || head.next == null)
+                return true;
+
+            ListNode pre = null;
+            ListNode oneCur = head;
+            ListNode twoCur = head;
+            Stack<int> stack = new Stack<int>();
+            while (twoCur != null && twoCur.next != null)
+            {
+                pre = oneCur;
+                oneCur = oneCur.next;
+                twoCur = twoCur.next.next;
+                stack.Push(pre.val);
+            }
+
+            if (twoCur != null)
+                oneCur = oneCur.next;
+            while (oneCur != null)
+            {
+                if (oneCur.val != stack.Pop())
+                    return false;
+                oneCur = oneCur.next;
+            }
+            return true;
+        }
     }
 }

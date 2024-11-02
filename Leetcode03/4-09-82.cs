@@ -83,7 +83,7 @@ namespace Leetcode03
                 else
                 {
                     pre = cur;
-                    cur = cur.next;
+                    cur = cur.next
                 }
             }
             return dummyNode.next;

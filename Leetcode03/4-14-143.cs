@@ -81,29 +81,29 @@ namespace Leetcode03
         // 好解法
         public void ReorderList2(ListNode head)
         {
-            if (head == null || head.next == null)
-                return;
+            List<int> list = new List<int>();
             ListNode cur = head;
-            List<ListNode> list = new List<ListNode>();
             while (cur != null)
             {
-                list.Add(cur);
+                list.Add(cur.val);
                 cur = cur.next;
             }
+
             int l = 0;
             int r = list.Count - 1;
 
-            
-            while(l < r)
+            cur = head;
+            while (l < r)
             {
-                list[l].next = list[r];
+                cur.val = list[l];
+                cur = cur.next;
+                cur.val = list[r];
+                cur = cur.next;
                 l++;
-                if (l == r)
-                    break;
-                list[r].next = list[l];
                 r--;
             }
-            list[l].next = null;
+            if (l == r)
+                cur.val = list[l];
         }
 
         public void ReorderList3(ListNode head)
